@@ -1,5 +1,11 @@
 # Real-Time Sentiment Analysis of Twitter Data
 
+
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+
+
 ## Project Overview
 This project involves creating a Python application that performs real-time sentiment analysis on Twitter data. It demonstrates proficiency in data acquisition, real-time data processing, machine learning model deployment, and visualization using a dashboard. This application can filter and analyze tweets based on specific keywords or hashtags and classify them into positive, negative, or neutral sentiments.
 
