@@ -29,7 +29,8 @@ for resource in nltk_resources:
         nltk.download(resource)
 
 # Construct the path to the .env file in the parent directory
-path = Path("/Users/melissamullen/twitter-sentiment-analysis")
+# path = Path("/Users/melissamullen/twitter-sentiment-analysis")
+path = os.getcwd()
 env_path = os.path.join(path, ".env")
 
 # Load environment variables from .env file
