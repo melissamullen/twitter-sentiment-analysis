@@ -12,6 +12,8 @@ from nltk.stem import WordNetLemmatizer
 import nltk
 from nltk.corpus import stopwords
 import time
+import nltk
+nltk.download('punkt')
 
 try:
     stopwords.words('english')
