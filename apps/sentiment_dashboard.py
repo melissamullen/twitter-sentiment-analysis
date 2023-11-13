@@ -23,14 +23,23 @@ load_dotenv(dotenv_path=env_path)
 
 
 # Function to create a connection engine to Snowflake
+# def get_snowflake_engine():
+#     return create_engine(URL(
+#         user=os.getenv('SNOWFLAKE_USER'),
+#         password=os.getenv('SNOWFLAKE_PASSWORD'),
+#         account=os.getenv('SNOWFLAKE_ACCOUNT'),
+#         warehouse=os.getenv('SNOWFLAKE_WAREHOUSE'),
+#         database=os.getenv('SNOWFLAKE_DATABASE'),
+#         schema=os.getenv('SNOWFLAKE_SCHEMA')
+#     ))
 def get_snowflake_engine():
     return create_engine(URL(
-        user=os.getenv('SNOWFLAKE_USER'),
-        password=os.getenv('SNOWFLAKE_PASSWORD'),
-        account=os.getenv('SNOWFLAKE_ACCOUNT'),
-        warehouse=os.getenv('SNOWFLAKE_WAREHOUSE'),
-        database=os.getenv('SNOWFLAKE_DATABASE'),
-        schema=os.getenv('SNOWFLAKE_SCHEMA')
+        user=st.secrets['SNOWFLAKE_USER'],
+        password=st.secrets['SNOWFLAKE_PASSWORD'],
+        account=st.secrets['SNOWFLAKE_ACCOUNT'],
+        warehouse=st.secrets['SNOWFLAKE_WAREHOUSE'],
+        database=st.secrets['SNOWFLAKE_DATABASE'],
+        schema=st.secrets['SNOWFLAKE_SCHEMA']
     ))
 
 
