@@ -9,3 +9,4 @@ transformers==4.35.0
 tweepy==4.14.0
 wordcloud==1.9.2
 snowflake-connector-python==3.4.1
+SQLAlchemy==1.4.50
