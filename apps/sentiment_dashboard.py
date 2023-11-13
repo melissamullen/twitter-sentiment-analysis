@@ -22,17 +22,7 @@ env_path = os.path.join(path, ".env")
 load_dotenv(dotenv_path=env_path)
 
 
-# Function to create a connection engine to Snowflake
-# def get_snowflake_engine():
-#     return create_engine(URL(
-#         user=os.getenv('SNOWFLAKE_USER'),
-#         password=os.getenv('SNOWFLAKE_PASSWORD'),
-#         account=os.getenv('SNOWFLAKE_ACCOUNT'),
-#         warehouse=os.getenv('SNOWFLAKE_WAREHOUSE'),
-#         database=os.getenv('SNOWFLAKE_DATABASE'),
-#         schema=os.getenv('SNOWFLAKE_SCHEMA')
-#     ))
-def get_snowflake_engine():
+def get_snowflake_engine():    
     return create_engine(URL(
         user=st.secrets['SNOWFLAKE_USER'],
         password=st.secrets['SNOWFLAKE_PASSWORD'],
@@ -44,6 +34,8 @@ def get_snowflake_engine():
 
 
 def fetch_date_range():
+    """Fetch the range of dates with data in EST"""
+
     engine = get_snowflake_engine()
     query = "SELECT MIN(created_at) as min_date, MAX(created_at) as max_date FROM tweets"
     df = pd.read_sql(query, engine)
@@ -58,6 +50,7 @@ def fetch_date_range():
 
 
 def fetch_data(date_range=None, category='All'):
+    """Fetch data from Snowflake based on the given filters"""
     engine = get_snowflake_engine()
     query = "SELECT * FROM tweets WHERE 1=1"
 
@@ -81,23 +74,6 @@ def fetch_data(date_range=None, category='All'):
     print(df)
 
     return df
-
-
-def custom_date_formatter(x, pos=None):
-    if pos == 0:  # First label is always full date and time
-        return data['created_at_est_str'][x]
-    else:
-        # Check if this label's date is different from the previous label's date
-        current_label = data['created_at_est_str'][x]
-        previous_label = data['created_at_est_str'][x-1]
-        
-        current_date = current_label.split()[0]
-        previous_date = previous_label.split()[0]
-
-        if current_date != previous_date:
-            return current_label  # Show full date and time for new dates
-        else:
-            return current_label.split()[1]  # Show only time otherwise
 
 
 ####### Streamlit App Layout ######
@@ -141,6 +117,7 @@ ax.plot(data['created_at_est_str'], data['sentiment_polarity'], marker='o', line
 tick_spacing = 5  # Adjust this based on your data's density
 ax.xaxis.set_major_locator(plt.MaxNLocator(tick_spacing))
 
+# Set title and axis labels
 ax.set_xlabel('Time (EST)')
 ax.set_ylabel('Sentiment Polarity')
 ax.set_title('Sentiment Polarity Over Time (EST)')
@@ -148,6 +125,7 @@ ax.set_title('Sentiment Polarity Over Time (EST)')
 # Adjust x-axis labels for readability
 ax.tick_params(axis='x', rotation=20)
 
+# Display the plot
 st.pyplot(fig)
 
 
@@ -158,13 +136,16 @@ fig, ax = plt.subplots()
 # Plotting a histogram
 ax.hist(data['sentiment_polarity'], bins=20, color='purple', edgecolor='black')
 
+# Set title and axis labels
 ax.set_xlabel('Sentiment Polarity', fontsize=12)
 ax.set_ylabel('Frequency', fontsize=12)
 ax.set_title('Distribution of Sentiment Polarity', fontsize=14)
 
+# Display the plot
 st.pyplot(fig)
 
 print(data.columns)
+
 ### Word Cloud ###
 # Assuming 'tweet' is the column containing the text
 st.header('Word Cloud')

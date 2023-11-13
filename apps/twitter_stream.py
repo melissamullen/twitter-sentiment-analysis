@@ -29,9 +29,7 @@ for resource in nltk_resources:
         nltk.download(resource)
 
 # Construct the path to the .env file in the parent directory
-# path = Path("/Users/melissamullen/twitter-sentiment-analysis")
-path = os.getcwd()
-env_path = os.path.join(path, ".env")
+env_path = os.path.join(os.getcwd(), "twitter-sentiment-analysis", ".env")
 
 # Load environment variables from .env file
 load_dotenv(dotenv_path=env_path)
@@ -55,7 +53,6 @@ def determine_category(tweet_text):
         return 'Finance'
     elif any(keyword in tweet_text_lower for keyword in education_keywords):
         return 'Education'
-    # ... additional categories ...
 
     return 'General'
 
