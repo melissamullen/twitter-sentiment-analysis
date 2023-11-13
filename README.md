@@ -10,7 +10,7 @@
 This project involves creating a Python application that performs real-time sentiment analysis on Twitter data. It analyzes tweets on various AI-related topics, assesses their sentiment, and visualizes the results in an interactive dashboard using Streamlit. The data is fetched in real-time using Tweepy and stored in a Snowflake database.
 
 ## Features
-- Real-time Twitter data fetching and analysis.
+- 'Real-time' Twitter data fetching and analysis (updates every one minute).
 - Sentiment analysis of tweets related to AI.
 - Interactive dashboard built with Streamlit for data visualization.
 - Data storage and retrieval using Snowflake.
@@ -21,9 +21,7 @@ This project involves creating a Python application that performs real-time sent
 - SQL
 - Snowflake
 - AWS (EC2 instance)
-- Hugging Face's Transformers
 - Streamlit (for the [dashboard](https://melissa-mullen-twitter-sentiment-analysis.streamlit.app/))
-- Docker (for deployment)
 - Twitter API
 
 ## Prerequisites
@@ -49,7 +47,6 @@ This project involves creating a Python application that performs real-time sent
 
 ## Configuration
 1. Set up your Twitter API credentials and Snowflake connection details in an `.env` file or use environment variables.
-2. Update the configuration in the `config.py` file (if applicable).
 
 ## Running the Dashboard
 To run the Streamlit dashboard locally, execute the following command:
