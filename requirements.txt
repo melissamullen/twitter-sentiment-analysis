@@ -8,6 +8,6 @@ textblob==0.17.1
 transformers==4.35.0
 tweepy==4.14.0
 wordcloud==1.9.2
-snowflake-connector-python==2.7.9
+snowflake-connector-python==2.8.3
 sqlalchemy==1.4.50
 altair==4
