@@ -7,22 +7,55 @@
 
 
 ## Project Overview
-This project involves creating a Python application that performs real-time sentiment analysis on Twitter data. It demonstrates proficiency in data acquisition, real-time data processing, machine learning model deployment, and visualization using a dashboard. This application can filter and analyze tweets based on specific keywords or hashtags and classify them into positive, negative, or neutral sentiments.
+This project involves creating a Python application that performs real-time sentiment analysis on Twitter data. It analyzes tweets on various AI-related topics, assesses their sentiment, and visualizes the results in an interactive dashboard using Streamlit. The data is fetched in real-time using Tweepy and stored in a Snowflake database.
 
 ## Features
-- Real-time streaming of Twitter data.
-- Sentiment analysis using a pre-trained ML model.
-- Visualization dashboard for displaying sentiment analysis results.
+- Real-time Twitter data fetching and analysis.
+- Sentiment analysis of tweets related to AI.
+- Interactive dashboard built with Streamlit for data visualization.
+- Data storage and retrieval using Snowflake.
+- Automated tweet fetching using a scheduled cron job.
 
 ## Technologies Used
 - Python
-- Twitter API
+- SQL
+- Snowflake
+- AWS (EC2 instance)
 - Hugging Face's Transformers
-- Streamlit/Dash (for the dashboard)
+- Streamlit (for the [dashboard](https://melissa-mullen-twitter-sentiment-analysis.streamlit.app/))
 - Docker (for deployment)
-
-## Getting Started
-(Instructions on setting up the project, including cloning the repository, installing dependencies, and any initial configuration steps.)
+- Twitter API
 
 ## Prerequisites
-(A list of software, APIs, and other prerequisites needed to run the project.)
+- Python 3.9
+- Twitter Developer Account and API credentials
+- Snowflake account
+- Streamlit
+- Additional Python libraries: `tweepy`, `textblob`, `pandas`, `numpy`, `matplotlib`
+
+## Installation
+1. Clone the repository:
+
+`git clone https://github.com/melissamullen/twitter-sentiment-analysis.git`
+
+2. Navigate to the project directory:
+
+`cd twitter-sentiment-analysis`
+
+3. Install required Python packages:
+
+`pip install -r requirements.txt`
+
+
+## Configuration
+1. Set up your Twitter API credentials and Snowflake connection details in an `.env` file or use environment variables.
+2. Update the configuration in the `config.py` file (if applicable).
+
+## Running the Dashboard
+To run the Streamlit dashboard locally, execute the following command:
+
+`streamlit run apps/sentiment_dashboard.py`
+
+## Deployment
+- The dashboard is deployed on Streamlit Sharing.
+- The tweet fetching script is set up as a cron job on an AWS EC2 instance.
