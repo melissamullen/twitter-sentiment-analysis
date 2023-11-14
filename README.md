@@ -18,6 +18,8 @@ This project involves creating a Python application that performs real-time sent
 
 ## Technologies Used
 - Python
+- NLTK (for lemmatization)
+- TextBlob (for sentiment model)
 - SQL
 - Snowflake
 - AWS (EC2 instance)

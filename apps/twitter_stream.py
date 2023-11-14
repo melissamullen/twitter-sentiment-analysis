@@ -143,26 +143,6 @@ def fetch_and_analyze_tweets(query, max_results=100):
 # Intialize the database
 init_db()
 
-# # Define the batch interval (in seconds)
-# batch_interval = 900  # Adjust as needed
-
-# while True:
-#     try:
-#         # Fetch and process tweets
-#         query = "#AI OR #ArtificialIntelligence -is:retweet"
-#         fetch_and_analyze_tweets(query, max_results=100)
-
-#         # Wait for the next batch
-#         time.sleep(batch_interval)
-
-#     except tweepy.TweepyException as e:
-#         if e.api_code == 429:  # Rate limit exceeded
-#             print("Rate limit exceeded. Waiting to retry...")
-#             time.sleep(15 * 60)  # Wait 15 minutes before retrying
-#         else:
-#             print(f"An error occurred: {e}")
-#             time.sleep(batch_interval)
-
 
 def main():
     try:
