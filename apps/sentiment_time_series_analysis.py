@@ -44,8 +44,7 @@ def plot_time_series(data):
     # Ensure the timestamp is the index
     data.set_index('timestamp', inplace=True)
 
-    # Optionally, filter data to a specific time frame
-    # For example, data between 22:28 and 22:30
+    # Option to filter data to a specific time frame
     filtered_data = data.between_time('22:28', '22:30')
 
     # Plotting
