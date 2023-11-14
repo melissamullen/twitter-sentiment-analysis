@@ -1,4 +1,4 @@
 .env
-.devcontainer
-.streamlit
-.vscode
+.devcontainer/
+.streamlit/
+.vscode/
