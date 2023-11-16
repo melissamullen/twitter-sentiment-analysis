@@ -23,7 +23,7 @@ This project involves creating a Python application that performs real-time sent
 - SQL
 - Snowflake
 - AWS (EC2 instance)
-- Streamlit (for the [dashboard](https://melissa-mullen-twitter-sentiment-analysis.streamlit.app/))
+- Streamlit (for the [dashboard](https://melissa-mullen-twitter-sentiment-analysis.streamlit.app/) - Note that I am using the Free Tier of the Twitter API, which may affect the availability of real-time data.)
 - Twitter API
 
 ## Prerequisites
